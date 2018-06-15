@@ -11,4 +11,4 @@ Adesso puoi seguire le nuove pubblicazioni in due modalità:
 * su un canale Telegram [https://t.me/albopoptreviso](https://t.me/albopoptreviso)
 * tramite un feed RSS [http://feeds.feedburner.com/AlboPretorioTreviso](http://feeds.feedburner.com/AlboPretorioTreviso)
 
-**Autori**: Carlo Felice Dalla Pasqua __featuring__ Andrea Borruso
+**Autori**: Carlo Felice Dalla Pasqua _featuring_ Andrea Borruso
