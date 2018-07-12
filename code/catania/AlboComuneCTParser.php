@@ -29,6 +29,50 @@ define('ALBO_CT_URL','http://www.comune.catania.gov.it/EtnaInWeb/AlboPretorio.ns
 define("NMONTHS","1");
 
 /**
+ *  Here we provide some utilitymethods t download the notices page from the web site of the municipality of catania
+ */
+class AlboComuneCTDonwloader{
+	private $url;
+
+	/**
+	 *
+	 * @param $url the URL of the notice board page
+	 */
+	public function __construct($url) {		
+		$this->url=$url;
+	}
+
+	/**
+	 * Factory method to construct an instance which retrieves entries from
+	 * a default period of time ago.
+	 */
+	public  function createByDate(){
+		$date=new DateTimeImmutable();
+		$from_date=$date->sub(new DateInterval('P'.NMONTHS.'M'));
+		
+		$h=curl_init($this->url);
+		if (!$h) throw new Exception("Unable to initialize cURL session");
+		
+		curl_setopt($h, CURLOPT_POST, TRUE);
+		curl_setopt($h, CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt($h, CURLOPT_POSTFIELDS,
+				array("__Click" => 0,
+						"%%Surrogate_Attivi"=>"1",
+						"%%Surrogate_gg1"=>1, "gg1"=>$from_date->format('d'),
+						"%%Surrogate_mm1"=>1, "mm1"=>$from_date->format('m'),
+						"%%Surrogate_aa1"=>1, "aa1"=>$from_date->format('Y')
+				));
+		//curl_setopt($h, CURLOPT_HTTPHEADER, array("Accept-Charset: utf-8"));
+		$page=curl_exec($h);
+		if( $page==FALSE)
+			throw new Exception("Unable to execute POST request: ".curl_error($h));
+		curl_close($h);
+		return $page;
+	}
+
+}
+
+/**
  * Convenience class to represent single entry of the municipality of Catania Albo.
  *
  * @author Cristiano Longo
@@ -62,6 +106,29 @@ class AlboComuneCTEntry{
 		$this->tipo=html_entity_decode(utf8_decode($cells->item(3)->textContent));
 		$this->mittente_descrizione=html_entity_decode(utf8_decode($cells->item(4)->textContent));
 	}
+
+	/**
+	 * Retrieve the albo pages with all the notices of the current year
+	 */
+	public static function createByYear(){
+		date_default_timezone_set("Europe/Rome");
+		$t=new DateTime();
+		$currentYear=$t->format('Y');
+		
+		$h=curl_init($this->url);
+		if (!$h) throw new Exception("Unable to initialize cURL session");
+		curl_setopt($h, CURLOPT_POST, TRUE);
+		curl_setopt($h, CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt($h, CURLOPT_POSTFIELDS, array("__Click" => 0, "Anno"=>$currentYear, "Numero" => ""));
+	
+		//curl_setopt($h, CURLOPT_HTTPHEADER, array("Accept-Charset: utf-8"));
+		$page=curl_exec($h);
+		if( $page==FALSE)
+			throw new Exception("Unable to execute POST request: "+curl_error());
+		curl_close($h);
+		return $page;
+	}
+
 }
 /**
  * Get and parse the entries of a single year of the Albo Pretorio of the municipality
@@ -91,27 +158,8 @@ class AlboComuneCTParser implements Iterator{
 	 * a default period of time ago.
 	 */
 	public static function createByDate(){
-		$date=new DateTimeImmutable();
-		$from_date=$date->sub(new DateInterval('P'.NMONTHS.'M'));
-		
-		$h=curl_init(ALBO_CT_URL);
-		if (!$h) throw new Exception("Unable to initialize cURL session");
-		
-		curl_setopt($h, CURLOPT_POST, TRUE);
-		curl_setopt($h, CURLOPT_RETURNTRANSFER, TRUE);
-		curl_setopt($h, CURLOPT_POSTFIELDS,
-				array("__Click" => 0,
-						"%%Surrogate_Attivi"=>"1",
-						"%%Surrogate_gg1"=>1, "gg1"=>$from_date->format('d'),
-						"%%Surrogate_mm1"=>1, "mm1"=>$from_date->format('m'),
-						"%%Surrogate_aa1"=>1, "aa1"=>$from_date->format('Y')
-				));
-		//curl_setopt($h, CURLOPT_HTTPHEADER, array("Accept-Charset: utf-8"));
-		$page=curl_exec($h);
-		if( $page==FALSE)
-			throw new Exception("Unable to execute POST request: ".curl_error($h));
-		curl_close($h);
-		return new AlboComuneCTParser($page);
+		$d = new AlboComuneCTDonwloader(ALBO_CT_URL);
+		return new AlboComuneCTParser($d->createByDate());
 	}
 	
 	/**
