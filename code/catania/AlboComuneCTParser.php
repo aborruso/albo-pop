@@ -23,6 +23,7 @@
 
 //the following url is url-encoded
 define('ALBO_CT_URL','http://www.comune.catania.gov.it/EtnaInWeb/AlboPretorio.nsf/Web%20Ricerca?OpenForm&AutoFramed');
+//define('ALBO_CT_URL','http://www.comune.catania.gov.it/EtnaInWeb/AlboPretorio.nsf/8f8792f746272ce9c1257474003665cd?OpenForm&AutoFramed');
 
 //number of months before today from which retrieve the notices
 define("NMONTHS","1");
@@ -100,6 +101,7 @@ class AlboComuneCTParser implements Iterator{
 		curl_setopt($h, CURLOPT_RETURNTRANSFER, TRUE);
 		curl_setopt($h, CURLOPT_POSTFIELDS,
 				array("__Click" => 0,
+						"%%Surrogate_Attivi"=>"1",
 						"%%Surrogate_gg1"=>1, "gg1"=>$from_date->format('d'),
 						"%%Surrogate_mm1"=>1, "mm1"=>$from_date->format('m'),
 						"%%Surrogate_aa1"=>1, "aa1"=>$from_date->format('Y')
@@ -108,13 +110,12 @@ class AlboComuneCTParser implements Iterator{
 		$page=curl_exec($h);
 		if( $page==FALSE)
 			throw new Exception("Unable to execute POST request: ".curl_error($h));
-		curl_close($h);		
+		curl_close($h);
 		return new AlboComuneCTParser($page);
 	}
 	
 	/**
 	 * Retrieve the single notice with the specified number and year.
-
 	 * @param $year
 	 * @param $number
 	 */
