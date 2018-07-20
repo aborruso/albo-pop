@@ -7,8 +7,8 @@ La pagina ufficiale dell'albo pretorio del **Comune di Manduria** è questa: [ht
 
 Adesso puoi seguire le nuove pubblicazioni in albo in due modi dedicati:
 
-* su un canale **Telegram** [https://telegram.me/albopopmanduria](https://telegram.me/albopopmanduria).
-* iscrivendoti a un **feed RSS**: [http://feeds.feedburner.com/Newspopmanduria](http://feeds.feedburner.com/Newspopmanduria).
+* su un canale **Telegram** [https://telegram.me/albopopmanduria](https://telegram.me/albopopmanduriata).
+* iscrivendoti a un **feed RSS**: [http://feeds.feedburner.com/AlbopopManduria](http://feeds.feedburner.com/AlbopopManduria).
 
 
-**Autori**: [Gabriele Iurlaro](https://github.com/gabbiurlaro), [@piersoft](https://twitter.com/Piersoft)
+**Autori**: [Cooperativa Sociale Lacanosa](http://www.cooperativasociale.com/)
