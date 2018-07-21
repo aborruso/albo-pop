@@ -11,4 +11,4 @@ Adesso puoi seguire le nuove pubblicazioni in albo in due modi dedicati:
 * iscrivendoti a un **feed RSS**: [http://feeds.feedburner.com/AlbopopManduria](http://feeds.feedburner.com/AlbopopManduria).
 
 
-**Autori**: [Cooperativa Sociale Lacanosa](http://www.cooperativasociale.com/)
+**Autori**: [@Vic39](https://twitter.com/Vic39) e [Cooperativa Sociale Lacanosa](http://www.cooperativasociale.com/)
