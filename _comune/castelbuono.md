@@ -11,4 +11,4 @@ Adesso puoi seguire le nuove pubblicazioni tramite:
 * Facebook: [https://www.facebook.com/AlboPopCastelbuono/](https://www.facebook.com/AlboPopCastelbuono/).
 
 
-**Autore**: [@aborruso](https://twitter.com/aborruso) e [Daniele Di Nuovo](https://www.facebook.com/divuonodaniele)
+**Autore**: [@aborruso](https://twitter.com/aborruso) e [Daniele Di Vuono](https://www.facebook.com/divuonodaniele)
