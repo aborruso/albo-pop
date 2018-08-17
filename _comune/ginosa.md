@@ -10,4 +10,4 @@ Puoi seguire le nuove pubblicazioni tramite questo feed RSS:
 
 * [http://feeds.feedburner.com/AlbopopDelComuneDiGinosa](http://feeds.feedburner.com/AlbopopDelComuneDiGinosa)
 
-**Autore**: Enrico Giancipoli
+**Autore**: [Enrico Giancipoli](https://www.facebook.com/egiancipo.li)
