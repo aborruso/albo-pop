@@ -4,7 +4,7 @@ title: Cori (Lazio)
 official: 0
 ---
 
-La pagina dell'albo pretorio del **Comune di Cori** è questa: [https://albopretorio.datamanagement.it/AlboPretorioWeb/?ente=ComuneDiCori&tipoSubmit=ricerca](https://albopretorio.datamanagement.it/AlboPretorioWeb/?ente=ComuneDiCori&tipoSubmit=ricerca)
+La pagina dell'albo pretorio del **Comune di Cori** è questa: [https://albopretorio.datamanagementitalia.it/AlboPretorioWeb/?ente=ComuneDiCori&tipoSubmit=ricerca](https://albopretorio.datamanagementitalia.it/AlboPretorioWeb/?ente=ComuneDiCori&tipoSubmit=ricerca)
 
 Adesso puoi seguire le nuove pubblicazioni in due modalità:
 
