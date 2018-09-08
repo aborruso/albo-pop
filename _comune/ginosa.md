@@ -8,7 +8,9 @@ La pagina dell'albo pretorio del **Comune di Ginosa** è questa: [http://www.hal
 
 Puoi seguire le nuove pubblicazioni tramite:
 
-* feed RSS [http://feeds.feedburner.com/AlbopopDelComuneDiGinosa](http://feeds.feedburner.com/AlbopopDelComuneDiGinosa);
-* canale Telegram [https://t.me/albopretorioginosa](https://t.me/albopretorioginosa).
-
-**Autore**: [Enrico Giancipoli](https://www.facebook.com/egiancipo.li)
+*  alboPOP **ufficiale** (a cura di [**Enrico Giancipoli**](https://www.facebook.com/egiancipo.li))
+   * feed RSS [http://feeds.feedburner.com/AlbopopDelComuneDiGinosa](http://feeds.feedburner.com/AlbopopDelComuneDiGinosa);
+   * canale Telegram [https://t.me/albopretorioginosa](https://t.me/albopretorioginosa);
+*  alboPOP **civico** (a cura di  [**associazione Fare Zero**](https://www.farezero.org/))
+   * feed RSS [http://feeds.feedburner.com/AlbopopGinosa](http://feeds.feedburner.com/AlbopopGinosa);
+   * canale Telegram [https://t.me/albopopginosa](https://t.me/albopopginosa).
