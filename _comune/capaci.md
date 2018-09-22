@@ -1,6 +1,6 @@
 ---
 layout: comune
-title: Capaci (Sicili)
+title: Capaci (Sicilia)
 official: 0
 ---
 
