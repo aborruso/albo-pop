@@ -1,4 +1,5 @@
-# Cosa è
-**Albo POP** è un piccolo e semplice esperimento, che ha come obiettivo quello di rendere più "popolari" gli Albi Pretori dei comuni.
+# ATTENZIONE
 
-L'URL del progetto è [http://albopop.it/](http://albopop.it/)
+**Questo repository non è più attivo**
+
+Il nuovo repo di progetto è https://github.com/ondata/albopopTwoDotZero
