@@ -22,8 +22,7 @@
  */
 
 //the following url is url-encoded
-define('ALBO_CT_URL','http://www.comune.catania.gov.it/EtnaInWeb/AlboPretorio.nsf/Web%20Ricerca?OpenForm&AutoFramed');
-//define('ALBO_CT_URL','http://www.comune.catania.gov.it/EtnaInWeb/AlboPretorio.nsf/8f8792f746272ce9c1257474003665cd?OpenForm&AutoFramed');
+define('ALBO_CT_URL','https://www.comune.catania.gov.it/EtnaInWeb/AlboPretorio.nsf/Web%20Ricerca?OpenForm&AutoFramed');
 
 //number of months before today from which retrieve the notices
 define("NMONTHS","1");
@@ -46,7 +45,7 @@ class AlboComuneCTDonwloader{
 	 * Factory method to construct an instance which retrieves entries from
 	 * a default period of time ago.
 	 */
-	public  function createByDate(){
+	public  function getByDate(){
 		$date=new DateTimeImmutable();
 		$from_date=$date->sub(new DateInterval('P'.NMONTHS.'M'));
 		
@@ -57,10 +56,13 @@ class AlboComuneCTDonwloader{
 		curl_setopt($h, CURLOPT_RETURNTRANSFER, TRUE);
 		curl_setopt($h, CURLOPT_POSTFIELDS,
 				array("__Click" => 0,
-						"%%Surrogate_Attivi"=>"1",
+						"%%Surrogate_Attivi"=>"1", "Attivi"=>"SI",
 						"%%Surrogate_gg1"=>1, "gg1"=>$from_date->format('d'),
 						"%%Surrogate_mm1"=>1, "mm1"=>$from_date->format('m'),
-						"%%Surrogate_aa1"=>1, "aa1"=>$from_date->format('Y')
+						"%%Surrogate_aa1"=>1, "aa1"=>$from_date->format('Y'),
+						"%%Surrogate_gg2"=>1, "gg2"=>"31",
+						"%%Surrogate_mm2"=>1, "mm2"=>"12",
+						"%%Surrogate_aa2"=>1, "aa2"=>"2019"
 				));
 		//curl_setopt($h, CURLOPT_HTTPHEADER, array("Accept-Charset: utf-8"));
 		$page=curl_exec($h);
@@ -68,6 +70,22 @@ class AlboComuneCTDonwloader{
 			throw new Exception("Unable to execute POST request: ".curl_error($h));
 		curl_close($h);
 		return $page;
+	}
+
+	/**
+	   * just download the page using CURL.
+	   */
+	private function downloadPage($url){
+		$ch=curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0');		
+		$responsetxt = curl_exec($ch);
+		$error=curl_error($ch);
+		curl_close($ch);
+		if ($error!=='')
+			die("Unable to load page  $url: $error\n");
+		return $responsetxt;
 	}
 
 }
@@ -159,7 +177,7 @@ class AlboComuneCTParser implements Iterator{
 	 */
 	public static function createByDate(){
 		$d = new AlboComuneCTDonwloader(ALBO_CT_URL);
-		return new AlboComuneCTParser($d->createByDate());
+		return new AlboComuneCTParser($d->getByDate());
 	}
 	
 	/**
