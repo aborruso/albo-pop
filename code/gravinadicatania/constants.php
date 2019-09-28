@@ -1,4 +1,0 @@
-<?php 
-define('ALBO_URL','http://trasparenza.comune.gravina-di-catania.ct-egov.it/web/trasparenza/papca-ap?p_p_id=jcitygovalbopubblicazioni_WAR_jcitygovalbiportlet&p_p_lifecycle=1&p_p_state=pop_up&p_p_mode=view&controlPanelCategory=portlet_jcitygovalbopubblicazioni_WAR_jcitygovalbiportlet&_jcitygovalbopubblicazioni_WAR_jcitygovalbiportlet_action=eseguiPaginazione&hidden_page_size=200');
-define('SELECTION_FORM_URL','http://trasparenza.comune.gravina-di-catania.ct-egov.it/web/trasparenza/papca-ap?p_auth=m9tc3CNA&p_p_id=jcitygovalbopubblicazioni_WAR_jcitygovalbiportlet&p_p_lifecycle=1&p_p_state=pop_up&p_p_mode=view&controlPanelCategory=portlet_jcitygovalbopubblicazioni_WAR_jcitygovalbiportlet&_jcitygovalbopubblicazioni_WAR_jcitygovalbiportlet_action=eseguiFiltro');
-?>
